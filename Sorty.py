@@ -51,3 +51,30 @@ def merge(lista):
 print(liczby)
 merge(liczby)
 print(liczby)
+
+### QuickSort
+print("QuickSort")
+
+liczby = [5,6,3,9,10,14,18,2,73,54,21,19]
+
+def partition(lista, left, right):
+    i = (left - 1)
+    pivot = lista[right]
+    for j in range(left, right):
+        if lista[j] <= pivot:
+            i = i + 1
+            lista[i], lista[j] = lista[j], lista[i]
+    lista[i + 1], lista[right] = lista[right], lista[i + 1]
+    return (i + 1)
+
+
+
+def quick(lista, left, right):
+    if left < right:
+        pi = partition(lista, left, right)
+        quick(lista, left, pi - 1)
+        quick(lista, pi + 1, right)
+
+print(liczby)
+quick(liczby,0,len(liczby)-1)
+print(liczby)
